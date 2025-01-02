@@ -23,7 +23,7 @@ const values = [
 // push a object that contains the value and suit to the deck array
 // return the deck
 
-export const getDeck = () => {
+export const createDeck = () => {
   const deck = [];
   for (let i = 0; i < suits.length; i++) {
     for (let j = 0; j < values.length; j++) {
