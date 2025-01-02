@@ -1,27 +1,19 @@
-const suits = ["spades", "hearts", "clubs", "diamonds"];
+const suits = ['spades', 'hearts', 'clubs', 'diamonds'];
 const values = [
-  "A",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "J",
-  "Q",
-  "K",
+  'A',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  'J',
+  'Q',
+  'K',
 ];
-
-// create a deck of cards using the suits and values above
-// define a function
-// define an empty array tp store the deck
-// use a for loop to loop through the suits
-// for every suit loop through the values
-// push a object that contains the value and suit to the deck array
-// return the deck
 
 export const createDeck = () => {
   const deck = [];
@@ -30,6 +22,18 @@ export const createDeck = () => {
       let card = { value: values[j], suit: suits[i] };
       deck.push(card);
     }
+  }
+  return deck;
+};
+
+export const shuffleDeck = (deck) => {
+  for (let i = 0; i < 1000; i++) {
+    let loc1 = Math.floor(Math.random() * deck.length);
+    let loc2 = Math.floor(Math.random() * deck.length);
+    let temp = deck[loc1];
+
+    deck[loc1] = deck[loc2];
+    deck[loc2] = temp;
   }
   return deck;
 };
