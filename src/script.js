@@ -37,3 +37,23 @@ export const shuffleDeck = (deck) => {
   }
   return deck;
 };
+
+// TODO: Create a player to store hand
+// Write test
+export const createPlayers = (numPlayers) => {
+  const players = [];
+  for (let i = 1; i <= numPlayers; i++) {
+    const hand = [];
+    const player = { name: `Player ${i}`, id: i, score: 0, hand: hand };
+    players.push(player);
+  }
+  return players;
+};
+// TODO: Deal a card
+// TODO: Deal a hand
+// TODO: Assign weights to cards
+// TODO: Calculate hand score
+// TODO:
+// TODO:
+// TODO:
+// TODO:
