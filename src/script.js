@@ -15,6 +15,7 @@ const values = [
   'K',
 ];
 
+// create a deck of 52 unshuffled cards
 export const createDeck = () => {
   const deck = [];
   for (let i = 0; i < suits.length; i++) {
@@ -49,8 +50,24 @@ export const createPlayers = (numPlayers) => {
   }
   return players;
 };
-// TODO: Deal a card
+
 // TODO: Deal a hand
+// A function that takes in the deck and the players array
+// It should loop through the players array twice
+// taking a card from the deck
+// and placing it in the players hand
+// untill they all have 2 cards
+export const dealCards = (deck, players) => {
+  for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < players.length; j++) {
+      let card = deck.pop();
+      players[j].hand.push(card);
+    }
+  }
+};
+
+const newDeck = createDeck();
+
 // TODO: Assign weights to cards
 // TODO: Calculate hand score
 // TODO:
