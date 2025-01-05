@@ -82,4 +82,12 @@ describe('Players are dealt an opening hand', () => {
       expect(players[i].hand.length).toBe(2);
     }
   });
+  test('The deck size should be reduced relative according to the number of players', () => {
+    const deck = createDeck();
+    shuffleDeck(deck);
+    const numPlayers = 5;
+    const players = createPlayers(numPlayers);
+    dealCards(deck, players);
+    expect(deck.length).toEqual(52 - numPlayers * 2);
+  });
 });
