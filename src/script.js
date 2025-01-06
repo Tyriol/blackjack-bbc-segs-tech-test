@@ -66,11 +66,38 @@ export const dealCards = (deck, players) => {
   }
 };
 
-const newDeck = createDeck();
-
-// TODO: Assign weights to cards
 // TODO: Calculate hand score
-// TODO:
+// set score to zero
+// set isAce to false
+// loop through hand
+// if the card value is K, Q, or J increase score by 10
+// if the card value is A increase score by 1
+// set isAce to true
+// for all other values increase by the face value
+// at the end if the score is 11 or less and isAce is true then add 10 to the score.
+export const calculateScore = (player) => {
+  player.score = 0;
+  let isAce = false;
+  for (let i = 0; i < player.hand.length; i++) {
+    if (
+      player.hand[i].value === 'K' ||
+      player.hand[i].value === 'Q' ||
+      player.hand[i].value === 'J'
+    ) {
+      player.score += 10;
+    } else if (player.hand[i].value === 'A') {
+      player.score += 1;
+      isAce = true;
+    } else {
+      player.score += Number(player.hand[i].value);
+    }
+  }
+  if (player.score <= 11 && isAce) {
+    player.score += 10;
+  }
+};
+
+// TODO: Function to deal a new card when a player chooses to "HIT"
 // TODO:
 // TODO:
 // TODO:
