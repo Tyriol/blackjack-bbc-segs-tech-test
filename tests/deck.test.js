@@ -3,6 +3,7 @@ import {
   shuffleDeck,
   createPlayers,
   dealCards,
+  calculateScore,
 } from '../src/script.js';
 
 describe('A valid new deck of cards is created and shuffled', () => {
@@ -89,5 +90,46 @@ describe('Players are dealt an opening hand', () => {
     const players = createPlayers(numPlayers);
     dealCards(deck, players);
     expect(deck.length).toEqual(52 - numPlayers * 2);
+  });
+});
+
+describe('Player Scores are calculated correctly', () => {
+  test('A king and an ace gives a score of 21', () => {
+    const player = createPlayers(1);
+    player[0].hand = [
+      { value: 'K', suit: 'hearts' },
+      { value: 'A', suit: 'spades' },
+    ];
+    calculateScore(player[0]);
+    expect(player[0].score).toBe(21);
+  });
+  test('A king, a queen and an ace gives a score of 21', () => {
+    const player = createPlayers(1);
+    player[0].hand = [
+      { value: 'K', suit: 'hearts' },
+      { value: 'Q', suit: 'hearts' },
+      { value: 'A', suit: 'spades' },
+    ];
+    calculateScore(player[0]);
+    expect(player[0].score).toBe(21);
+  });
+  test('A nine, an ace and another ace gives a score of 21', () => {
+    const player = createPlayers(1);
+    player[0].hand = [
+      { value: '9', suit: 'hearts' },
+      { value: 'A', suit: 'hearts' },
+      { value: 'A', suit: 'spades' },
+    ];
+    calculateScore(player[0]);
+    expect(player[0].score).toBe(21);
+  });
+  test('A nine and an eight gives a score of 17', () => {
+    const player = createPlayers(1);
+    player[0].hand = [
+      { value: '9', suit: 'hearts' },
+      { value: '8', suit: 'hearts' },
+    ];
+    calculateScore(player[0]);
+    expect(player[0].score).toBe(17);
   });
 });
