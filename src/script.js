@@ -98,6 +98,17 @@ export const calculateScore = (player) => {
 };
 
 // TODO: Function to deal a new card when a player chooses to "HIT"
-// TODO:
-// TODO:
-// TODO:
+// pop a card off the deck and give it to the player
+// calculate the score
+// check if it's higher then 21
+export const hitme = (deck, player) => {
+  let isValidHand = true;
+  let card = deck.pop();
+  player.hand.push(card);
+  calculateScore(player);
+  if (player.score > 21) return !isValidHand;
+};
+
+// TODO: Function to handle a player choosing to "STAY"
+// TODO: Function to evaluate score
+// TODO: Function to start a game
