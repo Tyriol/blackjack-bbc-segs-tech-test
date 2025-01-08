@@ -66,6 +66,15 @@ export const dealCards = (deck, players) => {
   }
 };
 
+// TODO: Start game
+export const startGame = (numPlayers) => {
+  const deck = createDeck();
+  shuffleDeck(deck);
+  const players = createPlayers(numPlayers);
+  dealCards(deck, players);
+  return [deck, players];
+};
+
 // TODO: Calculate hand score
 // set score to zero
 // set isAce to false
@@ -101,7 +110,7 @@ export const calculateScore = (player) => {
 // pop a card off the deck and give it to the player
 // calculate the score
 // check if it's higher then 21
-export const hitme = (deck, player) => {
+export const hitMe = (deck, player) => {
   let isValidHand = true;
   let card = deck.pop();
   player.hand.push(card);
