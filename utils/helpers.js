@@ -57,13 +57,14 @@ export const createPlayers = (numPlayers) => {
 // taking a card from the deck
 // and placing it in the players hand
 // untill they all have 2 cards
-export const dealCards = (deck, players) => {
+export const dealCards = ([...deck], players) => {
   for (let i = 0; i < 2; i++) {
     for (let j = 0; j < players.length; j++) {
       let card = deck.pop();
       players[j].hand.push(card);
     }
   }
+  return deck;
 };
 
 // TODO: Start game
