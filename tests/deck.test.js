@@ -90,8 +90,8 @@ describe('Players are dealt an opening hand', () => {
     shuffleDeck(deck);
     const numPlayers = 5;
     const players = createPlayers(numPlayers);
-    dealCards(deck, players);
-    expect(deck.length).toEqual(52 - numPlayers * 2);
+    const reducedDeck = dealCards([...deck], players);
+    expect(reducedDeck.length).toEqual(52 - numPlayers * 2);
   });
 });
 
