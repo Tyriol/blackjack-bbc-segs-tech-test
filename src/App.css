@@ -4,3 +4,25 @@
   padding: 2rem;
   text-align: center;
 }
+
+.players {
+  display: flex;
+  gap: 2rem;
+}
+
+.player {
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.player-cards {
+  display: flex;
+  gap: 2rem
+}
+
+.card {
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}

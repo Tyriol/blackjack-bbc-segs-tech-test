@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 import {
+  calculateScore,
   createDeck,
   createPlayers,
   dealCards,
@@ -16,9 +17,10 @@ function App() {
 
   const handleStart = (e) => {
     e.preventDefault();
+    console.log(e);
     const newDeck = createDeck();
     const shuffledDeck = shuffleDeck([...newDeck]);
-    const newPlayers = createPlayers(2);
+    const newPlayers = createPlayers(4);
     const dealtDeck = dealCards([...shuffledDeck], newPlayers);
     setDeck(dealtDeck);
     setPlayers(newPlayers);
@@ -42,16 +44,27 @@ function App() {
           <button onClick={handleStart}>Start</button>
         </form>
       ) : (
-        players.map((player) => {
-          return (
-            <div key={player.id}>
-              <h2>{player.name}</h2>
-              <p>{player.hand[0].value}</p>
-              <p>{player.hand[0].suit}</p>
-              <p>{player.score}</p>
-            </div>
-          );
-        })
+        <div className="players">
+          {players.map((player) => {
+            calculateScore(player);
+            return (
+              <div className="player" key={player.id}>
+                <h2>{player.name}</h2>
+                <div className="player-cards">
+                  {player.hand.map((card) => {
+                    return (
+                      <div className="card">
+                        <p>{card.value}</p>
+                        <p>{card.suit}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+                <p>Score: {player.score}</p>
+              </div>
+            );
+          })}
+        </div>
       )}
     </>
   );
