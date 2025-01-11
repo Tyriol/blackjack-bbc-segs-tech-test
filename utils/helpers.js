@@ -27,6 +27,7 @@ export const createDeck = () => {
   return deck;
 };
 
+// shuffle the deck
 export const shuffleDeck = (deck) => {
   for (let i = 0; i < 1000; i++) {
     let loc1 = Math.floor(Math.random() * deck.length);
@@ -39,8 +40,7 @@ export const shuffleDeck = (deck) => {
   return deck;
 };
 
-// TODO: Create a player to store hand
-// Write test
+// Create players to store hands
 export const createPlayers = (numPlayers) => {
   const players = [];
   for (let i = 1; i <= numPlayers; i++) {
@@ -67,16 +67,7 @@ export const dealCards = ([...deck], players) => {
   return deck;
 };
 
-// TODO: Start game
-export const startGame = (numPlayers) => {
-  const deck = createDeck();
-  shuffleDeck(deck);
-  const players = createPlayers(numPlayers);
-  dealCards(deck, players);
-  return [deck, players];
-};
-
-// TODO: Calculate hand score
+// Calculate hand score
 // set score to zero
 // set isAce to false
 // loop through hand
@@ -106,19 +97,3 @@ export const calculateScore = (player) => {
     player.score += 10;
   }
 };
-
-// TODO: Function to deal a new card when a player chooses to "HIT"
-// pop a card off the deck and give it to the player
-// calculate the score
-// check if it's higher then 21
-export const hitMe = (deck, player) => {
-  let isValidHand = true;
-  let card = deck.pop();
-  player.hand.push(card);
-  calculateScore(player);
-  if (player.score > 21) return !isValidHand;
-};
-
-// TODO: Function to handle a player choosing to "STAY"
-// TODO: Function to evaluate score
-// TODO: Function to start a game

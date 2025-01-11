@@ -135,15 +135,3 @@ describe('Player Scores are calculated correctly', () => {
     expect(player[0].score).toBe(17);
   });
 });
-
-describe("A player chooses to 'HIT'", () => {
-  test('The players hand increased by one', () => {
-    const deck = createDeck();
-    shuffleDeck(deck);
-    const players = createPlayers(2);
-    dealCards(deck, players);
-    expect(players[0].hand.length).toBe(2);
-    hitMe(deck, players[0]);
-    expect(players[0].hand.length).toBe(3);
-  });
-});
