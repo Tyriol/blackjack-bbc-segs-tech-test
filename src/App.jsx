@@ -84,10 +84,10 @@ function App() {
       {!isGameStarted ? (
         <form className="player-select">
           <label>
-            Choose how many players
+            Choose how many players:
             <select
               name="players"
-              id="players"
+              id="players-select"
               onChange={(e) => setNumPlayers(e.target.value)}
             >
               <option value="1">One Player</option>
