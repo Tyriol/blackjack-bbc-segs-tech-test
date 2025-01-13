@@ -59,13 +59,17 @@ function App() {
       setCurrentPlayerIndex(-1);
       let winner = -1;
       let winningScore = 0;
-      for (let i = 0; i < players.length; i++) {
-        if (players[i].score > winningScore && players[i].score < 22) {
-          winningScore = players[i].score;
-          winner = i;
+      if (players.length === 1 && players[0].score > 21) {
+        setGameWinner('noWin');
+      } else {
+        for (let i = 0; i < players.length; i++) {
+          if (players[i].score > winningScore && players[i].score < 22) {
+            winningScore = players[i].score;
+            winner = i;
+          }
         }
+        setGameWinner(players[winner].name);
       }
-      setGameWinner(players[winner].name);
     }
   };
 
@@ -115,7 +119,11 @@ function App() {
           </div>
           {gameWinner && (
             <div className="game-over">
-              <p>{gameWinner} is the winner!</p>
+              {gameWinner === 'noWin' ? (
+                <p>No winner!</p>
+              ) : (
+                <p>{gameWinner} is the winner!</p>
+              )}
               <button onClick={handlePlayAgain}>Play Again</button>
             </div>
           )}
