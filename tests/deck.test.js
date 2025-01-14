@@ -4,8 +4,6 @@ import {
   createPlayers,
   dealCards,
   calculateScore,
-  startGame,
-  hitMe,
 } from '../utils/helpers.js';
 
 describe('A valid new deck of cards is created and shuffled', () => {
