@@ -100,7 +100,9 @@ function App() {
               <option value="4">Four Players</option>
             </select>
           </label>
-          <button onClick={handleStart}>Start</button>
+          <button type="submit" onClick={handleStart}>
+            Start
+          </button>
         </form>
       ) : (
         <>

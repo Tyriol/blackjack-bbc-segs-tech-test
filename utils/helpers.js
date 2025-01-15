@@ -51,13 +51,13 @@ export const createPlayers = (numPlayers) => {
   return players;
 };
 
-// TODO: Deal a hand
+// Deal a hand
 // A function that takes in the deck and the players array
 // It should loop through the players array twice
 // taking a card from the deck
 // and placing it in the players hand
 // untill they all have 2 cards
-export const dealCards = ([...deck], players) => {
+export const dealCards = (deck, players) => {
   for (let i = 0; i < 2; i++) {
     for (let j = 0; j < players.length; j++) {
       let card = deck.pop();
