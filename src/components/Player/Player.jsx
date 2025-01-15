@@ -4,7 +4,12 @@ const Player = ({ player, onHit, onStay, isActive }) => {
       <h2>{player.name}</h2>
       <div className="player-cards">
         {player.hand.map((card, index) => (
-          <div className="card" key={index}>
+          <div
+            className="card"
+            key={index}
+            role="card"
+            data-testid={`player-${player.id}-card`}
+          >
             <p>{card.value}</p>
             <p>{card.suit}</p>
           </div>
