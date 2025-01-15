@@ -9,5 +9,6 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: '/test/setup.js',
     css: false,
+    reporters: ['verbose'],
   },
 });
