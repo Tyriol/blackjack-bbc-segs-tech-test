@@ -12,7 +12,6 @@ import {
 } from '../utils/helpers.js';
 
 function App() {
-  // state
   const [deck, setDeck] = useState([]);
   const [numPlayers, setNumPlayers] = useState(1);
   const [players, setPlayers] = useState([]);

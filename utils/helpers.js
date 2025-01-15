@@ -15,7 +15,6 @@ const values = [
   'K',
 ];
 
-// create a deck of 52 unshuffled cards
 export const createDeck = () => {
   const deck = [];
   for (let i = 0; i < suits.length; i++) {
@@ -27,7 +26,6 @@ export const createDeck = () => {
   return deck;
 };
 
-// shuffle the deck
 export const shuffleDeck = (deck) => {
   for (let i = 0; i < 1000; i++) {
     let loc1 = Math.floor(Math.random() * deck.length);
@@ -40,7 +38,6 @@ export const shuffleDeck = (deck) => {
   return deck;
 };
 
-// Create players to store hands
 export const createPlayers = (numPlayers) => {
   const players = [];
   for (let i = 1; i <= numPlayers; i++) {
@@ -51,12 +48,6 @@ export const createPlayers = (numPlayers) => {
   return players;
 };
 
-// Deal a hand
-// A function that takes in the deck and the players array
-// It should loop through the players array twice
-// taking a card from the deck
-// and placing it in the players hand
-// untill they all have 2 cards
 export const dealCards = (deck, players) => {
   for (let i = 0; i < 2; i++) {
     for (let j = 0; j < players.length; j++) {
@@ -67,15 +58,6 @@ export const dealCards = (deck, players) => {
   return deck;
 };
 
-// Calculate hand score
-// set score to zero
-// set isAce to false
-// loop through hand
-// if the card value is K, Q, or J increase score by 10
-// if the card value is A increase score by 1
-// set isAce to true
-// for all other values increase by the face value
-// at the end if the score is 11 or less and isAce is true then add 10 to the score.
 export const calculateScore = (player) => {
   player.score = 0;
   let isAce = false;
