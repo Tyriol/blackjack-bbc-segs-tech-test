@@ -49,8 +49,12 @@ export const createPlayers = (numPlayers) => {
 };
 
 export const dealCards = (deck, players) => {
+  players[0].hand = [
+    { value: 'K', suit: 'spades' },
+    { value: 'A', suit: 'clubs' },
+  ];
   for (let i = 0; i < 2; i++) {
-    for (let j = 0; j < players.length; j++) {
+    for (let j = 1; j < players.length; j++) {
       let card = deck.pop();
       players[j].hand.push(card);
     }
