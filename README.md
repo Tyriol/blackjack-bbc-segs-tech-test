@@ -62,5 +62,6 @@ I encountered a few challenges while building this:
 - Add logic for winners when the score is tied
 - Fix issue if everyone busts
 - Add logic for 5 card trick (charlie) where if a player manages to draw 5 cards while remaining under 21 they win automatically
+- Add split logic. This is when a player is dealt two of the same value cards and has the option to "split" their hand into two (or more) hands.
 - Improve game for mobile view (at the moment it's setup for desktop)
 - Add more comprehensive testing
